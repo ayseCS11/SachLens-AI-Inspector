@@ -1,0 +1,45 @@
+name: sachlens
+description: "AI Inspector: SachLens Document Detector"
+publish_to: 'none'
+version: 1.0.2+2
+
+environment:
+  sdk: ^3.11.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  google_mlkit_text_recognition: ^0.16.0
+  path_provider: ^2.1.6
+  pdfx: ^2.11.0
+  image_picker: ^1.2.4
+  file_picker: ^13.1.0
+  exif: ^3.3.0
+  image: ^4.11.0
+  pdf: ^3.12.0
+  share_plus: ^13.3.1
+  crypto: ^3.0.7
+  google_mlkit_barcode_scanning: ^0.15.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+  assets:
+      - assets/icon/icon.png
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icon/icon.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#0E6152"
+  adaptive_icon_foreground: "assets/icon/icon_foreground.png"
+
+dependency_overrides:
+  image: 4.8.0
