@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="SachLens Privacy Policy — learn how the app handles images, documents, diagnostics, and personal information.">
+  <title>Privacy Policy | SachLens</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080d1a;
+      --bg-soft: #0e1628;
+      --panel: rgba(18, 28, 49, .78);
+      --panel-solid: #111c31;
+      --text: #f3f6ff;
+      --muted: #a9b6ce;
+      --line: rgba(176, 197, 232, .16);
+      --accent: #79e4d1;
+      --accent-2: #8ea8ff;
+      --warning: #ffd28a;
+      --shadow: 0 24px 80px rgba(0, 0, 0, .28);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body {
+      margin: 0; background:
+        radial-gradient(ellipse at 8% 0%, rgba(67, 111, 211, .18), transparent 34rem),
+        radial-gradient(ellipse at 95% 20%, rgba(61, 204, 178, .11), transparent 30rem),
+        var(--bg);
+      color: var(--text); font: 16px/1.75 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button { font: inherit; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px);
+      background: rgba(8, 13, 26, .78); border-bottom: 1px solid var(--line);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--text); font-weight: 800; letter-spacing: -.04em; font-size: 1.2rem; }
+    .logo {
+      width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), #9fb0ff); color: #07111e; font-weight: 950;
+      box-shadow: 0 8px 28px rgba(121, 228, 209, .18);
+    }
+    .brand small { display: block; font-size: .68rem; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; font-weight: 700; line-height: 1.2; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;
+      padding: 10px 15px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.035);
+      color: var(--text); transition: transform .2s, border-color .2s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(121,228,209,.6); text-decoration: none; }
+    .btn-primary { color: #07111e; background: var(--accent); border-color: transparent; font-weight: 800; }
+    .hero { padding: 78px 0 42px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--accent); font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; font-weight: 800; }
+    .eyebrow:before { content: ""; width: 25px; height: 1px; background: currentColor; }
+    h1 { margin: 17px 0 18px; max-width: 850px; font-size: clamp(2.7rem, 7vw, 5.5rem); letter-spacing: -.065em; line-height: 1.02; }
+    .gradient { background: linear-gradient(100deg, #f6f8ff 10%, var(--accent) 56%, #a6b6ff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { max-width: 720px; color: var(--muted); font-size: clamp(1rem, 2vw, 1.18rem); margin: 0; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; color: #c9d4e8; font-size: .83rem; background: rgba(255,255,255,.025); }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(121,228,209,.1); }
+    .notice {
+      display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start;
+      margin: 20px 0 42px; padding: 18px 20px; border: 1px solid rgba(255,210,138,.28);
+      border-radius: 18px; background: rgba(255,210,138,.055); color: #e7d7bc;
+    }
+    .notice strong { color: var(--warning); display: block; margin-bottom: 3px; }
+    .notice p { margin: 0; font-size: .92rem; }
+    .notice-icon { font-size: 1.3rem; line-height: 1.6; }
+    .layout { display: grid; grid-template-columns: 265px minmax(0, 1fr); gap: 28px; align-items: start; padding-bottom: 80px; }
+    .toc { position: sticky; top: 100px; border: 1px solid var(--line); background: var(--panel); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+    .toc h2 { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .13em; margin: 0 0 12px; }
+    .toc a { display: block; padding: 8px 10px; border-radius: 10px; color: #bdc9df; font-size: .91rem; transition: .18s; }
+    .toc a:hover, .toc a.active { background: rgba(121,228,209,.09); color: var(--accent); text-decoration: none; }
+    .policy { min-width: 0; }
+    .section {
+      scroll-margin-top: 100px; padding: clamp(22px, 4vw, 34px); margin-bottom: 18px;
+      border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); box-shadow: 0 10px 40px rgba(0,0,0,.09);
+    }
+    .section-head { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 14px; }
+    .num { flex: 0 0 38px; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; background: rgba(121,228,209,.1); color: var(--accent); font-size: .86rem; font-weight: 850; }
+    h2 { font-size: clamp(1.2rem, 2.5vw, 1.55rem); line-height: 1.3; letter-spacing: -.03em; margin: 3px 0 0; }
+    h3 { font-size: 1rem; margin: 23px 0 8px; color: #eaf0ff; }
+    p { color: #b9c5da; margin: 12px 0; }
+    ul { color: #b9c5da; padding-left: 22px; margin: 10px 0; }
+    li { margin: 7px 0; padding-left: 3px; }
+    .strong { color: var(--text); font-weight: 700; }
+    .callout { border-left: 3px solid var(--accent); padding: 13px 16px; background: rgba(121,228,209,.055); border-radius: 0 12px 12px 0; margin: 18px 0; color: #c7d7e5; }
+    .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin: 18px 0; }
+    .mini { border: 1px solid var(--line); border-radius: 15px; padding: 16px; background: rgba(255,255,255,.018); }
+    .mini b { display: block; color: var(--text); margin-bottom: 5px; }
+    .mini p { font-size: .9rem; margin: 0; }
+    details { border: 1px solid var(--line); border-radius: 14px; padding: 0 15px; margin: 10px 0; background: rgba(255,255,255,.015); }
+    summary { cursor: pointer; padding: 13px 0; color: #e7edfb; font-weight: 700; }
+    details p { padding-bottom: 12px; margin: 0; }
+    .footer { border-top: 1px solid var(--line); background: rgba(255,255,255,.018); padding: 34px 0 28px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 22px; flex-wrap: wrap; }
+    .footer-brand { color: var(--text); font-weight: 800; }
+    .footer p { margin: 5px 0 0; font-size: .88rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; font-size: .9rem; }
+    .copyright { text-align: center; color: #7787a3; font-size: .8rem; margin-top: 28px; }
+    .backtop { position: fixed; bottom: 22px; right: 22px; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: #15213a; color: var(--accent); cursor: pointer; display: none; box-shadow: var(--shadow); z-index: 15; }
+    .backtop.show { display: block; }
+    .progress { position: fixed; top: 0; left: 0; z-index: 50; height: 3px; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+    .print-only { display: none; }
+    @media (max-width: 850px) {
+      .layout { grid-template-columns: 1fr; }
+      .toc { position: relative; top: auto; }
+      .toc-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2px 8px; }
+      .hero { padding-top: 54px; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 26px, 1160px); }
+      .nav { min-height: 66px; }
+      .nav-actions .btn span { display: none; }
+      .hero { padding-top: 42px; }
+      .grid2 { grid-template-columns: 1fr; }
+      .toc-list { grid-template-columns: 1fr; }
+      .section { padding: 20px; border-radius: 17px; }
+      .notice { padding: 15px; }
+      .footer-inner { align-items: flex-start; }
+    }
+    @media print {
+      :root { color-scheme: light; --text:#111; --muted:#444; --line:#ddd; }
+      body { background: #fff; color: #111; font-size: 11pt; }
+      .topbar, .toc, .nav-actions, .backtop, .progress, .footer-links { display:none !important; }
+      .hero { padding: 20px 0; }
+      h1, .gradient { color:#111; background:none; }
+      .layout { display:block; padding:0; }
+      .section { box-shadow:none; background:#fff; break-inside:avoid; padding:18px; }
+      p, ul, li { color:#222; }
+      .notice { background:#fff; color:#222; }
+      .footer { background:#fff; }
+      .print-only { display:block; }
+      a { color:#111; text-decoration:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="SachLens home">
+        <span class="logo">S</span>
+        <span>SachLens<small>Trust what you verify</small></span>
+      </a>
+      <div class="nav-actions">
+        <button class="btn" id="printBtn" type="button" aria-label="Print privacy policy">⤓ <span>Print / Save PDF</span></button>
+        <a class="btn btn-primary" href="#contact">Contact privacy team <span>↗</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="eyebrow">Transparency by design</div>
+      <h1>Your privacy.<br><span class="gradient">Your evidence. Your control.</span></h1>
+      <p>This Privacy Policy explains how SachLens handles information when you use the app to inspect images, documents, certificates, invoices, screenshots, posters, and other digital content.</p>
+      <div class="hero-meta">
+        <span class="pill"><span class="dot"></span> Privacy Policy</span>
+        <span class="pill">Effective date: 18 October 2026</span>
+        <span class="pill">Product by Tekno Efsun SMC (Pvt.) Ltd.</span>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="notice">
+        <div class="notice-icon">⚠</div>
+        <div>
+          <strong>Before publishing this policy</strong>
+          <p>This is a professional policy template. Confirm every statement against the actual released app, especially whether images, extracted text, analytics, crash reports, or AI requests leave the device. Replace the contact placeholder below with a monitored email address. Do not publish claims that are not true for your implementation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap layout">
+      <aside class="toc" aria-label="Table of contents">
+        <h2>On this page</h2>
+        <nav class="toc-list" id="toc">
+          <a href="#overview">Overview</a>
+          <a href="#information">Information we handle</a>
+          <a href="#processing">How analysis works</a>
+          <a href="#sharing">Sharing and third parties</a>
+          <a href="#retention">Storage and retention</a>
+          <a href="#permissions">Permissions</a>
+          <a href="#security">Security</a>
+          <a href="#children">Children's privacy</a>
+          <a href="#rights">Your choices</a>
+          <a href="#changes">Policy changes</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </aside>
+
+      <article class="policy">
+        <section class="section" id="overview">
+          <div class="section-head"><span class="num">01</span><h2>Overview</h2></div>
+          <p>SachLens (“<span class="strong">SachLens</span>”, “<span class="strong">we</span>”, “<span class="strong">our</span>”, or “<span class="strong">us</span>”) is an AI-assisted document and image inspection application developed and provided by <span class="strong">Tekno Efsun SMC (Pvt.) Ltd.</span></p>
+          <p>People use SachLens to look for potential signs of image manipulation, AI-generated imagery, altered document fields, and inconsistencies in digital content. Its results are indicators for further review, not official verification or a guarantee of authenticity.</p>
+          <p>This Policy describes information that may be processed when you use the app. The exact information handled depends on the features enabled in the version you use.</p>
+        </section>
+
+        <section class="section" id="information">
+          <div class="section-head"><span class="num">02</span><h2>Information we handle</h2></div>
+          <div class="grid2">
+            <div class="mini"><b>Files you choose</b><p>Images, document files, screenshots, or other supported content you deliberately select for analysis.</p></div>
+            <div class="mini"><b>Analysis results</b><p>Findings, scores, extracted text, heat-map data, and reports generated by features you use.</p></div>
+            <div class="mini"><b>Technical information</b><p>Basic device, app version, diagnostic, or crash information only if the app or its integrated services collect it.</p></div>
+            <div class="mini"><b>Messages to us</b><p>Contact details and the content you provide if you email us or request support.</p></div>
+          </div>
+          <p><span class="strong">We do not ask you to submit a document unless you choose to use a feature that requires it.</span> Files may contain personal or sensitive information, such as names, identification numbers, financial details, academic records, or photographs. Please inspect only content you are authorized to use.</p>
+          <p>Do not assume that every category above is collected. The categories actually processed depend on the app's implementation, permissions, and enabled SDKs. The publisher should remove any category that does not apply and disclose any additional collection.</p>
+        </section>
+
+        <section class="section" id="processing">
+          <div class="section-head"><span class="num">03</span><h2>How analysis works</h2></div>
+          <p>SachLens may use a combination of on-device processing and optional external services, depending on the released build and the feature selected.</p>
+          <h3>On-device analysis</h3>
+          <p>Where implemented, the app may inspect file properties, compare image pixels, calculate file fingerprints, run image-forensic checks, extract text, or evaluate local consistency rules directly on your device. Information processed only locally is not transmitted to us by that processing step.</p>
+          <h3>External AI or online services</h3>
+          <p>If a feature sends an image, document, extracted text, or analysis details to an AI provider or other online service, the relevant information is transmitted to that provider for the requested operation. The provider may process it under its own terms and privacy policy. The app should clearly disclose such processing before it occurs, where required.</p>
+          <div class="callout"><span class="strong">Important:</span> Do not upload confidential or sensitive documents to an external service unless you are authorized to do so and understand how that service handles the information.</div>
+          <h3>Automated assessments</h3>
+          <p>Analysis results may include suspected editing, possible AI-generation indicators, or inconsistencies. Automated systems can make mistakes. SachLens does not independently establish that a person committed fraud, that a document is legally invalid, or that a claim shown in a screenshot is true.</p>
+        </section>
+
+        <section class="section" id="sharing">
+          <div class="section-head"><span class="num">04</span><h2>Sharing and third-party services</h2></div>
+          <p>We do not sell personal information as a business practice. Information may be shared only where the actual app functionality requires it or where legally permitted, including the following situations if applicable:</p>
+          <ul>
+            <li><span class="strong">AI, OCR, or analysis providers:</span> information you submit to an enabled external service to perform a requested feature.</li>
+            <li><span class="strong">Infrastructure and diagnostics providers:</span> limited technical information processed by services integrated into the app, if any.</li>
+            <li><span class="strong">Your chosen destination:</span> a report or file you explicitly export, share, or send using your device's sharing features.</li>
+            <li><span class="strong">Legal and safety requirements:</span> information that must be disclosed to comply with applicable law or valid legal process.</li>
+          </ul>
+          <p>Third-party services operate under their own terms and policies. The publisher should list the providers actually used by the production app and link to their current privacy policies before release.</p>
+        </section>
+
+        <section class="section" id="retention">
+          <div class="section-head"><span class="num">05</span><h2>Storage and retention</h2></div>
+          <p>Retention depends on where information is processed and which features you use.</p>
+          <ul>
+            <li><span class="strong">Temporary processing:</span> files processed in memory may remain available while analysis is running and until the app or operating system releases that memory.</li>
+            <li><span class="strong">Local files and reports:</span> exported reports or files you save may remain on your device until you delete them.</li>
+            <li><span class="strong">External providers:</span> if data is sent to a third-party service, that provider's retention practices and contractual terms may apply.</li>
+            <li><span class="strong">Support and diagnostics:</span> correspondence or diagnostic records may be retained as needed to resolve issues, maintain security, or meet legal obligations, if such records are collected.</li>
+          </ul>
+          <p>We should not claim that all temporary files are automatically deleted unless the app has been tested to confirm that behavior across supported devices and file types.</p>
+        </section>
+
+        <section class="section" id="permissions">
+          <div class="section-head"><span class="num">06</span><h2>Device permissions</h2></div>
+          <p>SachLens may request access to the photo picker, file picker, camera, or other device capabilities when needed for a feature. The actual permissions depend on the installed version and the operating system.</p>
+          <p>You can manage app permissions in your device settings. Denying a permission may prevent the related feature from working, but should not affect unrelated functionality where technically possible.</p>
+        </section>
+
+        <section class="section" id="security">
+          <div class="section-head"><span class="num">07</span><h2>Security</h2></div>
+          <p>We aim to use reasonable technical and organizational safeguards appropriate to the information and services involved. Processing data on-device, where available, can reduce the need to transmit sensitive files.</p>
+          <p>No application, device, or transmission method can be guaranteed completely secure. Keep your device updated, protect access to saved reports, and avoid sharing sensitive files through destinations you do not trust.</p>
+        </section>
+
+        <section class="section" id="children">
+          <div class="section-head"><span class="num">08</span><h2>Children's privacy</h2></div>
+          <p>SachLens is not designed to knowingly collect personal information from children without the required authorization. If you believe a child has provided personal information to us through a support channel, contact us so we can review the request and take appropriate action where required by law.</p>
+          <p>The publisher must set the app's target audience and age rating accurately in Google Play Console.</p>
+        </section>
+
+        <section class="section" id="rights">
+          <div class="section-head"><span class="num">09</span><h2>Your choices and privacy rights</h2></div>
+          <p>Depending on your location and applicable law, you may have rights to request access to, correction of, or deletion of personal information that we hold about you, or to object to or restrict certain processing.</p>
+          <p>Information stored only on your device can generally be removed by deleting the relevant file, report, or app data. Information handled by a third-party provider may need to be managed through that provider's procedures.</p>
+          <p>To submit a privacy request, contact us using the details in the Contact section. We may need to verify your request before responding.</p>
+        </section>
+
+        <section class="section" id="changes">
+          <div class="section-head"><span class="num">10</span><h2>Changes to this Policy</h2></div>
+          <p>We may update this Policy when the app's features, service providers, legal requirements, or data practices change. The updated version will be published at this page with a revised effective date. Where required by law, we will provide additional notice or obtain consent.</p>
+          <p class="print-only">Printed from the SachLens Privacy Policy website.</p>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="section-head"><span class="num">11</span><h2>Contact</h2></div>
+          <p>For questions about this Privacy Policy, privacy requests, or concerns about how SachLens handles information, contact the publisher:</p>
+          <div class="mini">
+            <b>Tekno Efsun SMC (Pvt.) Ltd.</b>
+            <p>Product: SachLens — AI-Powered Document &amp; Image Authenticity Checker</p>
+            <p>Email: <a href="mailto:REPLACE-WITH-PRIVACY-EMAIL">REPLACE-WITH-PRIVACY-EMAIL</a></p>
+            <p>Website: <a href="https://aysecs11.github.io/teknoefsun/root/TeknoEfsun/" target="_blank" rel="noopener noreferrer">Tekno Efsun</a></p>
+          </div>
+          <p>Please replace the email placeholder with an active address monitored by the publisher before making this page public or submitting it to Google Play.</p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">SachLens <span style="color:var(--accent)">/</span> Privacy Center</div>
+          <p>Digital evidence deserves careful handling.</p>
+          <p>A product of <strong style="color:var(--text)">Tekno Efsun SMC Pvt. Ltd.</strong></p>
+        </div>
+        <div class="footer-links">
+          <a href="#overview">Policy overview</a>
+          <a href="#processing">Data processing</a>
+          <a href="#contact">Contact</a>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+      <div class="copyright">© <span id="year">2026</span> Tekno Efsun SMC Pvt. Ltd. All rights reserved.</div>
+    </div>
+  </footer>
+  <button class="backtop" id="backtop" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script>
+    const progress = document.getElementById('progress');
+    const backtop = document.getElementById('backtop');
+    const tocLinks = [...document.querySelectorAll('#toc a')];
+    const sections = tocLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+
+    function updateScrollUI() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const amount = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      progress.style.width = amount + '%';
+      backtop.classList.toggle('show', window.scrollY > 500);
+    }
+    window.addEventListener('scroll', updateScrollUI, { passive: true });
+    updateScrollUI();
+
+    backtop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            tocLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+          }
+        });
+      }, { rootMargin: '-18% 0px -68% 0px' });
+      sections.forEach(section => observer.observe(section));
+    }
+  </script>
+</body>
+</html>
