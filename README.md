@@ -1,229 +1,134 @@
-# SachLens — AI-Powered Document & Image Authenticity Checker
+# SachLens: Fake Document and AI Image Checker
 
-**See the signs. Examine the evidence. Make informed decisions.**
+Check before you trust or pay. SachLens reads posters, letters, offers and images on your phone, marks the red flags, and explains every finding. It is free, needs no server and no paid API, and is honest about what it cannot see.
 
-SachLens is an AI-assisted digital authenticity analysis application designed to help users inspect documents, photographs, certificates, invoices, social media screenshots, posters, advertisements, and other digital images for potential manipulation or AI generation.
+* Live page: YOUR_PAGES_LINK
+* Download the Android app: YOUR_APK_LINK
+* Demo video: YOUR_VIDEO_LINK
+* Google Play: submitted, currently in review
 
-In a world where AI-generated images and convincingly altered documents are becoming increasingly accessible, SachLens aims to make digital forensic checks easier to understand and more accessible to everyday users.
+## Problem
 
-Rather than blindly labelling content as real or fake, SachLens focuses on identifying suspicious signals, explaining its findings, and helping users decide what to verify next.
+Fake admission letters, job posters, visa offers, investment schemes and altered invoices cost people their savings every day. Victims usually cannot check a document before they pay. Existing tools either ask you to upload private documents to a server, or give one unexplained score that is easy to misread.
 
----
+## Solution
 
-## The Problem
+SachLens is an Android app that checks documents, images and wall posters entirely on the phone. It combines file forensics, text reading and explainable rules, then shows a clear result:
 
-AI-generated imagery, forged certificates, manipulated invoices, altered screenshots, and misleading promotional graphics can be difficult to distinguish from genuine content.
+* red numbered boxes on a poster, each with the reason and how to verify it
+* a three level verdict for documents: Suspicious, Cannot determine, or No warning signs found
+* a risk meter and the exact evidence behind it
+* local help for reporting and checking, chosen from the phone region
 
-These files can be used for:
-- Academic certificate and qualification fraud.
-- Invoice, receipt, and financial document manipulation.
-- Fake advertisements, promotional posters, and announcements.
-- Altered social media screenshots and impersonation attempts.
-- AI-generated photographs presented as authentic.
-- Misleading visual evidence circulated online.
+## Features
 
-Most users do not have access to professional forensic software or the technical expertise needed to interpret digital image artifacts.
+* Check a poster: photograph a poster and see the red flags marked on it
+* Document check: letters, offers, invoices and images (JPEG, PNG, PDF)
+* Dates and timeline check, for example a payment confirmed after the document date
+* Totals check, for example subtotal, tax and fees against the stated total
+* Scam wording in English, Roman Urdu, Spanish, French and Portuguese, with negation handling ("we never ask for fees" is not a flag)
+* QR code and link checks, read as text and never opened
+* File details: editing software, AI tool labels, camera data
+* Edit heat map (error level analysis) and a side by side Compare with original mode
+* Batch scan for up to 20 files, PDF report, and a Privacy Cleaner for photos
+* Reading quality check: the app says so when text cannot be read, and never calls it safe
 
-**SachLens aims to bridge this gap by turning technical inspection into understandable, evidence-based findings.**
+## How it works
 
-## Our Solution
+1. The file is read into memory. Temporary files are deleted right after use.
+2. File details are analysed: EXIF data, PDF creator fields, AI tool markers and Content Credentials labels.
+3. For JPEG images, error level analysis marks areas that react differently when the image is re saved.
+4. On device text recognition reads the text with its position. Pieces of text on the same row are joined, so a label and its value are read together.
+5. Rules cross check dates, totals, scores, payment wording, institution domains and QR destinations.
+6. Findings are combined into one explainable result. Every finding has a reason in plain words.
+7. The result tells the user how to confirm the document with the issuer.
 
-SachLens brings together image analysis, digital forensics, text inspection, and AI-assisted detection in one application.
+## AI methodology
 
-Users provide an image or supported document, and the app analyzes available evidence to identify potential warning signs.
+SachLens uses applied machine learning and explainable analysis, not a black box.
 
-Depending on the file format and implemented capabilities, these checks may include:
+* Machine learning for perception: Google ML Kit text recognition and barcode scanning, running on the device.
+* Computer vision forensics: error level analysis and image differencing, written in Dart.
+* Rule based language analysis: multilingual pattern sets, negation handling, and row reconstruction from the text positions given by the recognizer.
+* Evidence scoring: each finding has a suspicion value and a weight. Findings are combined so that one strong finding, or several medium findings, lead to a warning. The good verdict needs positive evidence, never just the absence of problems.
+* Explainability and honesty: every verdict shows its reasons, a rough risk guide, and the limits of the method.
 
-- **AI-generated image analysis:** Evaluating whether an image exhibits characteristics associated with AI generation.
-- **Image manipulation detection:** Examining error-level differences and other visual artifacts that may indicate localized editing.
-- **Metadata inspection:** Reviewing available file information, timestamps, and editing software details.
-- **Text extraction:** Reading visible document text through OCR when supported.
-- **Document consistency checks:** Identifying arithmetic discrepancies, conflicting dates, inconsistent values, or unusual text formatting where applicable.
-- **Visual evidence:** Highlighting areas that may deserve closer inspection.
-- **Explainable results:** Presenting findings in understandable language rather than relying exclusively on a single score.
+There is no generative AI model, no large language model and no cloud AI service in the app. We chose this on purpose, to keep user files on the phone. SachLens does not claim to detect AI generated pictures from their pixels. It reports labels and traces that AI tools leave in files, and says when none are found.
 
-These checks provide supporting evidence, not definitive proof of authenticity or fraud.
+## Models and APIs used
 
-## Key Features
+| Component | Purpose | Runs where | Cost |
+|---|---|---|---|
+| Google ML Kit Text Recognition (Latin script) | Reads text and positions | On the device | Free |
+| Google ML Kit Barcode Scanning | Reads QR codes | On the device | Free |
+| Our own Dart code | Forensics, rules, scoring | On the device | Free |
 
-### 1. AI-Generated Image Inspection
-Analyze photographs and graphics for potential signs of synthetic image generation.
+No paid API, no cloud API, no API keys.
 
-### 2. Document Forgery Inspection
-Examine certificates, invoices, receipts, and other document images for possible editing artifacts and inconsistencies.
+## Tech stack
 
-### 3. Error Level Analysis (ELA)
-Re-save supported images at a fixed JPEG quality and compare pixel differences across regions. Unusual differences can be displayed as a heat map for further inspection.
+Flutter and Dart for Android. Packages: google_mlkit_text_recognition, google_mlkit_barcode_scanning, image, exif, pdf, pdfx, image_picker, file_picker, share_plus, path_provider, crypto. No backend, no database, no login.
 
-ELA is a heuristic: ordinary compression, image texture, resizing, and repeated saving can also produce differences.
+## Privacy
 
-### 4. Image and Screenshot Analysis
-Inspect social media screenshots, posters, advertisements, and promotional graphics for potential image manipulation and visual inconsistencies.
+Files are processed on the device. The app has no account and no server. Reports and cleaned photos leave the phone only when the user chooses to share them.
 
-### 5. Explainable Findings
-Help users understand why a file may warrant further verification, including suspicious regions or inconsistencies identified by the available analysis methods.
+## Setup
 
-### 6. Privacy-Conscious Design
-SachLens is designed with privacy in mind. On-device processing can reduce unnecessary exposure of sensitive documents. Actual data handling depends on the features and services enabled in the application.
-
-### 7. Responsible Verdicts
-The application is intended to communicate findings using cautious categories such as:
-
-- **Likely Authentic:** No significant warning signs were detected by the available checks.
-- **Suspicious:** One or more indicators warrant further investigation.
-- **Cannot Determine:** Available evidence is insufficient for a reliable assessment.
-
-A lack of detected warning signs does not guarantee that a file is genuine.
-
----
-
-## How It Works
-
-The intended analysis workflow consists of the following stages.
-
-| Stage | Analysis | Purpose |
-|---|---|---|
-| 1 | File intake | Accept a supported image or document for inspection. |
-| 2 | File fingerprinting | Identify files or duplicate content where fingerprint matching is implemented. |
-| 3 | Metadata inspection | Examine available file properties and editing information. |
-| 4 | Image forensics | Look for unusual compression patterns and localized differences. |
-| 5 | Text extraction | Extract readable text when OCR is available. |
-| 6 | Consistency analysis | Identify supported arithmetic, date, or formatting inconsistencies. |
-| 7 | AI-image analysis | Evaluate potential indicators of synthetic image generation. |
-| 8 | Evidence reporting | Present findings and suggest appropriate verification steps. |
-
-The checks that run, their execution time, and their availability depend on the file type and the capabilities implemented in the current release.
-
-## Example Use Cases
-
-### Case 1: Certificate Inspection
-A user uploads a certificate image. The app identifies an unusual region around a grade or date field. The result explains that the region warrants review rather than declaring the certificate forged.
-
-### Case 2: Invoice Inspection
-A user uploads an invoice. If text extraction and arithmetic validation are available, the app can flag a discrepancy between the listed items and the stated total.
-
-### Case 3: AI-Generated Photograph
-A user submits an image for AI-generation analysis. The app reports the available model's assessment as an indicator, not a conclusive determination.
-
-### Case 4: Social Media Screenshot
-A user inspects a screenshot containing a purported announcement. The app may identify visual inconsistencies or extract the visible text. It cannot independently prove that the post appeared on the original platform or that its claims are true.
-
----
-
-## Privacy and Security
-
-Sensitive documents can contain names, identification numbers, financial details, academic records, and other personal information.
-
-SachLens follows a privacy-conscious development approach:
-
-- Prefer on-device processing when technically feasible.
-- Avoid unnecessary collection of personal information.
-- Clearly disclose any optional external AI services or network processing.
-- Explain data handling through an appropriate privacy policy.
-- Avoid presenting an automated assessment as an authoritative fraud determination.
-
-**Privacy claims must reflect the actual implementation.** If a feature uploads files or extracted content to an external service, that behavior must be disclosed accurately.
-
-## Technology
-
-SachLens is developed as a Flutter application using Dart.
-
-The project includes image analysis based on Error Level Analysis and a modular signal-based assessment approach. Additional capabilities, such as OCR, metadata inspection, and AI-generated image classification, depend on the components integrated into the current build.
-
-The architecture is intended to support explainable, modular analysis rather than depending entirely on one opaque verdict.
-
-## Limitations
-
-SachLens is an assistive inspection tool, not a certified forensic laboratory or an official document-verification authority.
-
-- No single image analysis method can reliably detect every manipulation.
-- Error Level Analysis can produce false positives and false negatives.
-- Metadata may be missing, stripped, or deliberately altered.
-- AI-generated image detectors can misclassify both synthetic and genuine images.
-- OCR and document consistency checks depend on image quality and the supported rules.
-- A genuine screenshot can contain false information.
-- A suspicious-looking document is not necessarily fraudulent.
-- Authenticity may require confirmation from the original issuer or publishing platform.
-
-For important academic, financial, legal, or identity-related decisions, users should verify the source independently.
-
-## Hackathon Project
-
-SachLens explores how AI-assisted analysis and digital forensic techniques can help people critically examine digital content in an era of increasingly convincing synthetic media.
-
-The project emphasizes three principles:
-
-1. **Accessibility:** Make digital inspection understandable to non-experts.
-2. **Explainability:** Show the evidence behind a warning whenever possible.
-3. **Responsibility:** Communicate uncertainty and avoid unsupported claims.
-
-## Getting Started
-
-### Requirements
-- Flutter SDK compatible with the project configuration.
-- Dart SDK compatible with the project configuration.
-- Android Studio or another supported Flutter development environment.
-- An Android device or emulator.
-
-### Run Locally
-
-Clone the repository:
+Requirements: Flutter 3 or newer, an Android phone or emulator.
 
 ```bash
-git clone 
+git clone https://github.com/YOUR_USERNAME/sachlens.git
 cd sachlens
-```
-
-Install dependencies:
-
-```bash
 flutter pub get
-```
-
-Run the application:
-
-```bash
 flutter run
 ```
 
-Build an Android release APK:
+Run the tests:
+
+```bash
+flutter test
+```
+
+Build a release APK:
 
 ```bash
 flutter build apk --release
 ```
 
-Build an Android App Bundle:
+Note: if you see a build error that mentions the image and archive packages, keep the dependency_overrides section in pubspec.yaml, which pins the image package to a compatible version.
 
-```bash
-flutter build appbundle --release
-```
+## Testing
 
-The APK is typically generated at:
+The repository includes automated test cases for the poster rules and the document rules, covering scam posters in several languages, honest posters that must not be accused, warning posters, and text in unsupported scripts. The samples folder holds fictional files for trying the app by hand.
 
-```text
-build/app/outputs/flutter-apk/app-release.apk
-```
+## Screenshots
 
-The Android App Bundle is typically generated at:
+![Home](docs/screenshots/1_home.png)
+![Poster check](docs/screenshots/2_poster.png)
+![Fake letter result](docs/screenshots/3_letter.png)
+![Honest result](docs/screenshots/4_honest.png)
+![Compare with original](docs/screenshots/5_compare.png)
 
-```text
-build/app/outputs/bundle/release/app.aab
-```
+## Limitations
 
-Release signing and any required configuration must be completed before distributing a release build.
+* It finds warning signs. It cannot prove that a document is genuine.
+* It cannot verify signatures, seals, paper or a student record.
+* A careful forgery with no contradictions can pass.
+* Urdu and Arabic script cannot be read yet. The app says so and does not guess.
+* Text reading can misread digits, so mismatch messages say to check by hand.
+* Phrases in languages other than English should be reviewed by native speakers.
 
-## Project Status
+## Roadmap
 
-SachLens is being developed as an AI-assisted document and image authenticity analysis application.
+More scripts, a larger and reviewed list of institutions, a test set with published accuracy, and an optional opt in deeper check.
 
-The capabilities available to users are determined by the current implementation. Features described as intended, optional, or dependent on additional components should not be assumed to be fully operational until verified in the released build.
+## Team and contributions
 
-## Disclaimer
+* Ayesha Arshad (team lead, solo): idea, product design, Flutter development, rule design, testing, documentation and release.
 
-SachLens provides automated indicators for informational purposes only. It does not guarantee that a document or image is authentic, forged, AI-generated, or truthful. Results should not be used as the sole basis for accusations, legal conclusions, financial decisions, or other high-stakes judgments.
+The project was built newly for the NYLP AI Hackathon 2026. An AI assistant (Claude by Anthropic) was used for coding help and review. All design decisions, integration, testing and submission were done by the team lead.
 
-## Acknowledgment
+## License
 
-Built to explore practical, responsible applications of AI and digital forensics for identifying potential manipulation in digital content.
-
-**SachLens — Examine the evidence before trusting the image.**
+MIT
