@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SachLens: Fake Document and AI Image Checker</title>
+<meta name="description" content="SachLens checks documents, images and wall posters on your phone and marks the red flags. Free, private and honest about its limits.">
+<style>
+:root {
+  --bg: #f4f8f6;
+  --card: #ffffff;
+  --text: #12211c;
+  --muted: #4b5f58;
+  --brand: #0e6152;
+  --brand-text: #ffffff;
+  --border: #d3e2db;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1512;
+    --card: #12221d;
+    --text: #e7f2ee;
+    --muted: #9ab4ab;
+    --brand: #35b394;
+    --brand-text: #04130e;
+    --border: #23403a;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+main { max-width: 860px; margin: 0 auto; padding: 24px 16px 64px; }
+header { text-align: center; padding: 32px 0 16px; }
+header img { width: 96px; height: 96px; border-radius: 22px; }
+h1 { margin: 12px 0 4px; font-size: 2rem; }
+.tagline { color: var(--muted); font-size: 1.1rem; margin: 0 0 20px; }
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  background: var(--brand);
+  color: var(--brand-text);
+  border: 2px solid var(--brand);
+}
+.btn.alt { background: transparent; color: var(--brand); }
+section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 18px;
+}
+h2 { margin-top: 0; font-size: 1.25rem; }
+ul, ol { padding-left: 22px; }
+li { margin: 6px 0; }
+.shots { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; }
+.shots img { height: 360px; border-radius: 10px; border: 1px solid var(--border); }
+.note { color: var(--muted); font-size: 0.92rem; }
+footer { text-align: center; color: var(--muted); margin-top: 28px; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="icon.png" alt="SachLens logo">
+    <h1>SachLens</h1>
+    <p class="tagline">Check before you trust or pay. Free, private, and honest about what it cannot see.</p>
+    <div class="buttons">
+      <a class="btn" href="YOUR_APK_LINK">Download the Android app</a>
+      <a class="btn alt" href="YOUR_VIDEO_LINK">Watch the 2 minute demo</a>
+      <a class="btn alt" href="YOUR_REPO_LINK">View the code</a>
+    </div>
+    <p class="note">Google Play listing: submitted, currently in review.</p>
+  </header>
+
+  <section>
+    <h2>What it does</h2>
+    <p>Take a photo of a poster, a letter or an offer. SachLens reads it on your phone and marks the red flags: fees asked first, guaranteed visas, impossible dates, payment receipts inside offer letters, QR codes that lead to a different website, and more. Every warning shows its evidence and tells you how to confirm it yourself.</p>
+  </section>
+
+  <section>
+    <h2>Try it in 3 minutes</h2>
+    <ol>
+      <li>Download the APK on an Android phone and install it (see the help below).</li>
+      <li>Open the app, tap <strong>Check a poster</strong>, and photograph or pick a poster that says something like "Dubai jobs, guaranteed visa, pay a registration fee first". The red flags appear as numbered boxes on the poster.</li>
+      <li>Go back and use <strong>Pick an image</strong> on an offer letter. Try a letter that is dated before a payment it claims to confirm.</li>
+      <li>Optional: turn on airplane mode and scan again. Nothing needs the internet.</li>
+    </ol>
+    <p class="note">Sample files and test cases are in the repository.</p>
+  </section>
+
+  <section>
+    <h2>If the phone blocks the install</h2>
+    <ul>
+      <li>Open the downloaded file. When Android asks, allow your browser or file manager to install unknown apps.</li>
+      <li>If Play Protect shows a warning, choose "More details", then "Install anyway". The app is signed by its developer and is not yet on the Play Store.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Screenshots</h2>
+    <div class="shots">
+      <img src="screenshots/1_home.png" alt="Home screen" loading="lazy">
+      <img src="screenshots/2_poster.png" alt="Poster with red flags marked" loading="lazy">
+      <img src="screenshots/3_letter.png" alt="Fake letter result" loading="lazy">
+      <img src="screenshots/4_honest.png" alt="Honest document result" loading="lazy">
+      <img src="screenshots/5_compare.png" alt="Compare with original" loading="lazy">
+    </div>
+  </section>
+
+  <section>
+    <h2>What it checks</h2>
+    <ul>
+      <li>Scam wording in English, Roman Urdu, Spanish, French and Portuguese</li>
+      <li>Dates and timelines, totals that do not add up, impossible scores</li>
+      <li>File details: editing software, AI tool labels, camera data</li>
+      <li>Edited areas of a photo (error level analysis) and a side by side compare mode</li>
+      <li>QR codes and links, checked as text without opening them</li>
+      <li>Batch scan, PDF report, and a privacy cleaner for photos</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Honest limits</h2>
+    <p>SachLens finds warning signs. It cannot prove that a document is genuine, and it cannot see a careful forgery that has no contradictions. It cannot read Urdu or Arabic script yet, and it does not use a generative AI model to guess whether a picture is AI made. It says so on screen and tells you to confirm with the issuer.</p>
+  </section>
+
+  <section>
+    <h2>Privacy</h2>
+    <p>Files are checked on your phone. The core checks need no account, no server and no paid service.</p>
+  </section>
+
+  <footer>Built for the NYLP AI Hackathon 2026 by Ayesha Arshad.</footer>
+</main>
+</body>
+</html>
