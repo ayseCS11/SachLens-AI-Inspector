@@ -2,9 +2,6 @@
 
 Check before you trust or pay. SachLens reads posters, letters, offers and images on your phone, marks the red flags, and explains every finding. It is free, needs no server and no paid API, and is honest about what it cannot see.
 
-* Live page: YOUR_PAGES_LINK
-* Download the Android app: YOUR_APK_LINK
-* Demo video: YOUR_VIDEO_LINK
 * Google Play: submitted, currently in review
 
 ## Problem
@@ -102,13 +99,6 @@ Note: if you see a build error that mentions the image and archive packages, kee
 
 The repository includes automated test cases for the poster rules and the document rules, covering scam posters in several languages, honest posters that must not be accused, warning posters, and text in unsupported scripts. The samples folder holds fictional files for trying the app by hand.
 
-## Screenshots
-
-![Home](docs/screenshots/1_home.png)
-![Poster check](docs/screenshots/2_poster.png)
-![Fake letter result](docs/screenshots/3_letter.png)
-![Honest result](docs/screenshots/4_honest.png)
-![Compare with original](docs/screenshots/5_compare.png)
 
 ## Limitations
 
